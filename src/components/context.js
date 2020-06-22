@@ -1,0 +1,91 @@
+import React, { useState } from 'react'
+
+export const Context = React.createContext()
+
+export const Provider = ({ children }) => {
+  const [letters] = useState(['s', 'u', 'm', 'm', 'a', 'r', 'i', 's', 'e'])
+  const [index] = useState(8)
+  const [words] = useState([
+    'arse',
+    'summarise',
+    'arses',
+    'amuse',
+    'amuses',
+    'arise',
+    'arises',
+    'assume',
+    'assure',
+    'issue',
+    'mess',
+    'misuse',
+    'raise',
+    'raises',
+    'rise',
+    'same',
+    'summer',
+    'sure',
+    'user',
+    'users',
+    'uses',
+    'ears',
+    'rises',
+    'sues',
+    'summaries',
+    'ares',
+    'armies',
+    'emir',
+    'emirs',
+    'eras',
+    'mare',
+    'mares',
+    'mime',
+    'mimes',
+    'mire',
+    'mires',
+    'miser',
+    'misers',
+    'muse',
+    'muses',
+    'ream',
+    'reams',
+    'remiss',
+    'rues',
+    'ruse',
+    'ruses',
+    'sames',
+    'seam',
+    'seams',
+    'sear',
+    'sears',
+    'seas',
+    'serum',
+    'serums',
+    'simmer',
+    'simmers',
+    'sire',
+    'sires',
+    'smear',
+    'smears',
+    'summers',
+    'surmise',
+    'masseur',
+    'emus',
+    'immure',
+    'immures',
+    'mesa',
+    'mesas',
+    'mussier',
+    'rime',
+    'rimes',
+    'semi',
+    'semis',
+    'urea',
+  ])
+  const [guesses] = useState([])
+
+  const submit = (val) => {
+    console.log(val)
+  }
+
+  return <Context.Provider value={{ letters, index, words, submit, guesses }}>{children}</Context.Provider>
+}

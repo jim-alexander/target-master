@@ -1,0 +1,90 @@
+import wordlist from 'wordlist-english'
+
+//The 9 letter referance word is more common
+const common = [
+  ...wordlist['english/australian/10'],
+  ...wordlist['english/australian/20'],
+  ...wordlist['english/australian/35'],
+  ...wordlist['english/10'],
+  ...wordlist['english/20'],
+  ...wordlist['english/35'],
+]
+
+//Will accept more uncommon words
+const wordArray = [
+  ...wordlist['english/australian/10'],
+  ...wordlist['english/australian/20'],
+  ...wordlist['english/australian/35'],
+  ...wordlist['english/australian/40'],
+  ...wordlist['english/australian/50'],
+  ...wordlist['english/10'],
+  ...wordlist['english/20'],
+  ...wordlist['english/35'],
+  ...wordlist['english/40'],
+  ...wordlist['english/50'],
+]
+
+const wordsFromLetters = (randWord, randIndex) => {
+  let usableWords = []
+
+  wordArray.forEach((word) => {
+    let letters = randWord.split('')
+    if (word.includes(letters[randIndex]) && word.length >= 4 && word.length <= 9) {
+      let word_letters = word.split('')
+      word_letters.every((l) => {
+        let index = letters.indexOf(l)
+        if (index >= 0) {
+          letters.splice(index, 1)
+          return true
+        }
+      }) && usableWords.push(word)
+    }
+  })
+  if (usableWords.length < 50) {
+    nineLetterWord()
+  } else {
+    console.log(randWord, randWord[randIndex], usableWords)
+    countWords(usableWords)
+  }
+}
+
+const nineLetterWord = () => {
+  let nineLetterWords = []
+
+  common.forEach((word) => word.length === 9 && nineLetterWords.push(word))
+
+  let randWord = Math.floor(Math.random() * nineLetterWords.length + 1)
+  let randIndex = Math.floor(Math.random() * 9)
+
+  wordsFromLetters(nineLetterWords[randWord], randIndex)
+}
+
+const countWords = (array) => {
+  let count = { 4: [], 5: [], 6: [], 7: [], 8: [], 9: [] }
+  array.forEach((word) => (count[word.length] = [...count[word.length], word]))
+  console.log({ count })
+}
+
+nineLetterWord()
+
+const solveLetters = (inputWord, index) => {
+  //Index of main letter starts at 0
+  let usableWords = []
+
+  wordArray.forEach((word) => {
+    let letters = inputWord.split('')
+    if (word.includes(inputWord[index]) && word.length >= 4 && word.length <= 9) {
+      let word_letters = word.split('')
+      word_letters.every((l) => {
+        let index = letters.indexOf(l)
+        if (index >= 0) {
+          letters.splice(index, 1)
+          return true
+        }
+      }) && usableWords.push(word)
+    }
+  })
+  console.log(usableWords)
+  countWords(usableWords)
+}
+// solveLetters('sicsdofeh', 0)
