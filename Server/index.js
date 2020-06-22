@@ -24,6 +24,16 @@ const wordArray = [
   ...wordlist['english/50'],
 ]
 
+console.log(wordArray.indexOf('colour'))
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 const wordsFromLetters = (randWord, randIndex) => {
   let usableWords = []
 
@@ -43,8 +53,9 @@ const wordsFromLetters = (randWord, randIndex) => {
   if (usableWords.length < 50) {
     nineLetterWord()
   } else {
+    // console.log(shuffle(randWord.split('')), randWord[randIndex])
     console.log(randWord, randWord[randIndex], usableWords)
-    countWords(usableWords)
+    // countWords(usableWords)
   }
 }
 
