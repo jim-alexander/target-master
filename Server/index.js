@@ -50,6 +50,7 @@ const wordsFromLetters = (randWord, randIndex) => {
       }) && usableWords.push(word)
     }
   })
+  //Threshold for difficulty... greater number should be easier (Find more words)
   if (usableWords.length < 50) {
     nineLetterWord()
   } else {
