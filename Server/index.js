@@ -102,7 +102,7 @@ const solveLetters = (inputWord, index) => {
 // ***********************************************
 
 //1 - Solve Existing Puzzle - provide the index of the main letter (starting from 0)
-// solveLetters('sicsdofeh', 0)
+// solveLetters('blemished', 2)
 
 //2.1 - Genorate New puzzle - Without answers
 // nineLetterWord(false)
