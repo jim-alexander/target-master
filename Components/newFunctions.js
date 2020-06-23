@@ -32,5 +32,5 @@ export const wordGenerator = (threshold) => {
     }
   })
 
-  return usableWords.length < threshold ? wordGenerator(threshold) : { usableWords, chosen, letter: chosen[randIndex] }
+  return usableWords.length < threshold ? wordGenerator(threshold) : { usableWords, chosen, letter: randIndex }
 }
