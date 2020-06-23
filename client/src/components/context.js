@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const Context = React.createContext()
 
 export const Provider = ({ children }) => {
   const [letters] = useState(['s', 'u', 'm', 'm', 'a', 'r', 'i', 's', 'e'])
   const [index] = useState(8)
+  const [guess, setGuess] = useState('')
   const [words] = useState([
     'arse',
     'summarise',
@@ -81,11 +82,31 @@ export const Provider = ({ children }) => {
     'semis',
     'urea',
   ])
-  const [guesses] = useState([])
+  const [guesses, setGuesses] = useState([])
+  const [alert, setAlert] = useState(null)
 
-  const submit = (val) => {
-    console.log(val)
+  const submit = () => {
+    console.log(guess)
+    if (words.indexOf(guess) >= 0) {
+      setGuesses([...guesses, guess])
+      setAlert(null)
+    } else {
+      setAlert('Not valid for reasons')
+    }
+    setGuess('')
   }
 
-  return <Context.Provider value={{ letters, index, words, submit, guesses }}>{children}</Context.Provider>
+  useEffect(() => {
+    if (alert) {
+      setTimeout(() => {
+        setAlert(null)
+      }, 2000)
+    }
+  }, [alert])
+
+  return (
+    <Context.Provider value={{ letters, index, words, submit, guesses, guess, setGuess, alert }}>
+      {children}
+    </Context.Provider>
+  )
 }
