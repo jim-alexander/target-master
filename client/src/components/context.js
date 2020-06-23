@@ -16,8 +16,8 @@ export const Provider = ({ children }) => {
       .get('/api/generate')
       .then((resp) => {
         console.log(resp.data)
-        setIndex(resp.data.letter)
-        setLetters(resp.data.chosen.split(''))
+        setIndex(resp.data.index)
+        setLetters(resp.data.letters)
         setWords(resp.data.usableWords)
       })
       .then(console.log)

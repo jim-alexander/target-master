@@ -9,6 +9,14 @@ const nineLetterWords = () => {
   return words
 }
 
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 export const wordGenerator = (threshold) => {
   let words = nineLetterWords()
 
@@ -31,6 +39,8 @@ export const wordGenerator = (threshold) => {
       }) && usableWords.push(word)
     }
   })
+  let letters = shuffle(chosen.split(''))
+  let index = letters.indexOf(chosen[randIndex])
 
-  return usableWords.length < threshold ? wordGenerator(threshold) : { usableWords, chosen, letter: randIndex }
+  return usableWords.length < threshold ? wordGenerator(threshold) : { usableWords, letters, index }
 }
