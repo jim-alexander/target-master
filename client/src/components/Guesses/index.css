@@ -1,11 +1,9 @@
 #guess-con {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: middle;
-}
-#text-input {
-  margin: 0 10px 15px 0;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  max-width: 550px;
+  margin-bottom: 10px;
 }
 .guesses {
   flex: 1;
@@ -25,13 +23,12 @@
 .incorrect {
   color: #d20000;
 }
-#guess-count {
+.guess-count {
   font-weight: bold;
   margin: 10px;
+  border-bottom: 1px solid #7f7f7f;
+  padding-bottom: 10px;
 }
 #guesses-con {
   display: flex;
-}
-#solve {
-  margin: 20px;
 }

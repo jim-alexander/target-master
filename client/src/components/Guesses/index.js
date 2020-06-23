@@ -9,8 +9,8 @@ export default () => {
   const { submit, guess, setGuess, alert, solve, newGame } = useContext(Context)
 
   return (
-    <div id='guess-con'>
-      <div>
+    <div>
+      <div id='guess-con'>
         <TextInput
           name='text-input-name'
           placeholder='Make a word..'
@@ -22,17 +22,11 @@ export default () => {
         <Button appearance='primary' intent='success' onClick={() => submit()}>
           Guess
         </Button>
+        <Button onClick={() => solve()}>Solve</Button>
+        <Button onClick={() => newGame()}>New Game</Button>
       </div>
       {alert && <div id='invalid'>{alert}</div>}
       <Guesses />
-      <div>
-        <Button onClick={() => solve()} id='solve'>
-          Solve
-        </Button>
-        <Button onClick={() => newGame()} id='solve'>
-          New Game
-        </Button>
-      </div>
     </div>
   )
 }

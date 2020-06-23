@@ -6,7 +6,7 @@ export default () => {
   return (
     <div id='guesses-con'>
       <div className='guesses'>
-        {guesses.length > 0 && <div id='guess-count'>{guesses.length}</div>}
+        {guesses.length > 0 && <div className='guess-count'>{guesses.length}</div>}
         <div className='guesses'>
           {guesses.map((guess) => (
             <div key={guess}>
@@ -22,7 +22,7 @@ export default () => {
         </div>
       </div>
       <div className='guesses'>
-        {incorrect.length > 0 && <div id='guess-count'>{incorrect.length}</div>}
+        {incorrect.length > 0 && <div className='guess-count'>{incorrect.length}</div>}
         <div id='guesses'>
           {incorrect.map((guess) => (
             <div key={guess}>
