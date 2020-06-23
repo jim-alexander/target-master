@@ -26,7 +26,7 @@ export default () => {
         {guesses.map((guess) => (
           <div key={guess}>
             <a
-              href={`https://www.google.com/search?&q=define:${guess}`}
+              href={`https://www.dictionary.com/browse/${guess}`}
               target='_blank'
               rel='noopener noreferrer'
               className='guess'>

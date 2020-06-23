@@ -102,12 +102,12 @@ export const solveLetters = (inputWord, index) => {
 // ***********************************************
 
 //1 - Solve Existing Puzzle - provide the index of the main letter (starting from 0)
-// solveLetters('blemished', 2)
+solveLetters('thrillers', 6)
 
 //2.1 - Genorate New puzzle - Without answers
 // genorateGame(false)
 
 //2.2 - Genorate New puzzle - With answers
-genorateGame(false)
+// genorateGame(false)
 
 // ***********************************************
