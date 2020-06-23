@@ -30,13 +30,15 @@ export const wordGenerator = (threshold) => {
     let letters = chosen.split('')
     if (word.includes(letters[randIndex]) && word.length >= 4 && word.length <= 9) {
       let word_letters = word.split('')
-      word_letters.every((l) => {
-        let index = letters.indexOf(l)
-        if (index >= 0) {
-          letters.splice(index, 1)
-          return true
-        }
-      }) && usableWords.push(word)
+      word_letters[word_letters.length - 1] !== 's' &&
+        word_letters.every((l) => {
+          let index = letters.indexOf(l)
+          if (index >= 0) {
+            letters.splice(index, 1)
+            return true
+          }
+        }) &&
+        usableWords.push(word)
     }
   })
   let letters = shuffle(chosen.split(''))
