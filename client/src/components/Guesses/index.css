@@ -7,7 +7,7 @@
 #text-input {
   margin: 0 10px 15px 0;
 }
-#guesses {
+.guesses {
   flex: 1;
 }
 #invalid {
@@ -21,4 +21,14 @@
   text-decoration: none;
   color: #000;
   cursor: pointer;
+}
+.incorrect {
+  color: #d20000;
+}
+#guess-count {
+  font-weight: bold;
+  margin: 10px;
+}
+#guesses-con {
+  display: flex;
 }

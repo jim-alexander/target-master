@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { Context } from '../context'
 import { TextInput, Button } from 'evergreen-ui'
+import Guesses from './Guesses'
+
 import './index.css'
 
 export default () => {
-  const { submit, guess, setGuess, guesses, alert } = useContext(Context)
+  const { submit, guess, setGuess, alert, solve } = useContext(Context)
 
   return (
     <div id='guess-con'>
@@ -22,18 +24,9 @@ export default () => {
         </Button>
       </div>
       {alert && <div id='invalid'>{alert}</div>}
-      <div id='guesses'>
-        {guesses.map((guess) => (
-          <div key={guess}>
-            <a
-              href={`https://www.dictionary.com/browse/${guess}`}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='guess'>
-              {guess.toUpperCase()}
-            </a>
-          </div>
-        ))}
+      <Guesses />
+      <div>
+        <Button onClick={() => solve()}>Solve</Button>
       </div>
     </div>
   )

@@ -44,3 +44,29 @@ export const wordGenerator = (threshold) => {
 
   return usableWords.length < threshold ? wordGenerator(threshold) : { usableWords, letters, index }
 }
+
+const countWords = (array) => {
+  let count = { 4: [], 5: [], 6: [], 7: [], 8: [], 9: [] }
+  array.forEach((word) => (count[word.length] = [...count[word.length], word]))
+  return count
+}
+
+export const solveLetters = (inputWord, index) => {
+  //Index of main letter starts at 0
+  let usableWords = []
+
+  wordArray.forEach((word) => {
+    let letters = inputWord.split('')
+    if (word.includes(inputWord[index]) && word.length >= 4 && word.length <= 9) {
+      let word_letters = word.split('')
+      word_letters.every((l) => {
+        let index = letters.indexOf(l)
+        if (index >= 0) {
+          letters.splice(index, 1)
+          return true
+        }
+      }) && usableWords.push(word)
+    }
+  })
+  return countWords(usableWords)
+}
