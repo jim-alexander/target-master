@@ -11,7 +11,9 @@ export const Provider = ({ children }) => {
   const [incorrect, setIncorrect] = useState([])
   const [alert, setAlert] = useState(null)
 
-  useEffect(() => {
+  const newGame = () => {
+    setGuesses([])
+    setIncorrect([])
     axios
       .get('/api/generate')
       .then((resp) => {
@@ -23,7 +25,11 @@ export const Provider = ({ children }) => {
         setWords(resp.data.usableWords)
       })
       .catch(console.error)
-  }, [])
+  }
+
+  useEffect(() => {
+    !letters && newGame()
+  }, [letters])
 
   const submit = () => {
     console.log(guess)
@@ -58,7 +64,7 @@ export const Provider = ({ children }) => {
   }, [alert])
 
   return (
-    <Context.Provider value={{ letters, words, submit, guesses, guess, setGuess, alert, incorrect, solve }}>
+    <Context.Provider value={{ letters, words, submit, guesses, guess, setGuess, alert, incorrect, solve, newGame }}>
       {children}
     </Context.Provider>
   )

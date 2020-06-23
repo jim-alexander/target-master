@@ -6,7 +6,7 @@ import Guesses from './Guesses'
 import './index.css'
 
 export default () => {
-  const { submit, guess, setGuess, alert, solve } = useContext(Context)
+  const { submit, guess, setGuess, alert, solve, newGame } = useContext(Context)
 
   return (
     <div id='guess-con'>
@@ -28,6 +28,9 @@ export default () => {
       <div>
         <Button onClick={() => solve()} id='solve'>
           Solve
+        </Button>
+        <Button onClick={() => newGame()} id='solve'>
+          New Game
         </Button>
       </div>
     </div>
