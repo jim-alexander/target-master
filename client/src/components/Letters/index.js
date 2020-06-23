@@ -25,7 +25,7 @@ export default () => {
           </div>
           <div className='ltr-column'>
             {letter(3)}
-            {letter(4, true)}
+            {letter(4)}
             {letter(5)}
           </div>
           <div className='ltr-column'>

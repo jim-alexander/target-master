@@ -32,3 +32,6 @@
 #guesses-con {
   display: flex;
 }
+#solve {
+  margin: 20px;
+}

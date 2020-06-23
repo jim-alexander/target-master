@@ -26,7 +26,9 @@ export default () => {
       {alert && <div id='invalid'>{alert}</div>}
       <Guesses />
       <div>
-        <Button onClick={() => solve()}>Solve</Button>
+        <Button onClick={() => solve()} id='solve'>
+          Solve
+        </Button>
       </div>
     </div>
   )
