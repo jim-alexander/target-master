@@ -50,7 +50,7 @@ const wordsFromLetters = (randWord, randIndex, reveal) => {
   })
   //Threshold for difficulty... greater number should be easier (Find more words)
   if (usableWords.length < 50) {
-    nineLetterWord(reveal)
+    genorateGame(reveal)
   } else {
     if (reveal) {
       console.log(randWord, randWord[randIndex])
@@ -61,7 +61,7 @@ const wordsFromLetters = (randWord, randIndex, reveal) => {
   }
 }
 
-const nineLetterWord = (reveal) => {
+export const genorateGame = (reveal) => {
   let nineLetterWords = []
 
   common.forEach((word) => word.length === 9 && nineLetterWords.push(word))
@@ -78,7 +78,7 @@ const countWords = (array) => {
   console.log({ count })
 }
 
-const solveLetters = (inputWord, index) => {
+export const solveLetters = (inputWord, index) => {
   //Index of main letter starts at 0
   let usableWords = []
 
@@ -105,9 +105,9 @@ const solveLetters = (inputWord, index) => {
 // solveLetters('blemished', 2)
 
 //2.1 - Genorate New puzzle - Without answers
-// nineLetterWord(false)
+// genorateGame(false)
 
 //2.2 - Genorate New puzzle - With answers
-nineLetterWord(true)
+genorateGame(false)
 
 // ***********************************************
