@@ -26,8 +26,13 @@ export const Provider = ({ children }) => {
   const submit = () => {
     console.log(guess)
     if (words.indexOf(guess) >= 0) {
-      setGuesses([...guesses, guess])
-      setAlert(null)
+      let index = guesses.indexOf(guess)
+      if (index === -1) {
+        setGuesses([...guesses, guess])
+        setAlert(null)
+      } else {
+        setAlert('Already added')
+      }
     } else {
       setAlert('Not valid for reasons')
     }

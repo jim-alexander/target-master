@@ -3,10 +3,11 @@ import { Context } from '../context'
 import './index.css'
 
 export default () => {
-  const { letters, guess, setGuess } = useContext(Context)
+  const { letters, guess, setGuess, index } = useContext(Context)
   const click = (e) => {
     setGuess(guess + e)
   }
+
   return (
     letters && (
       <div id='ltr-con'>
@@ -26,8 +27,8 @@ export default () => {
             <div className='ltr' onClick={() => click(letters[3])}>
               {letters[3]}
             </div>
-            <div className='ltr main-ltr' onClick={() => click(letters[8])}>
-              {letters[8]}
+            <div className='ltr main-ltr' onClick={() => click(letters[index])}>
+              {letters[index]}
             </div>
             <div className='ltr' onClick={() => click(letters[5])}>
               {letters[5]}
