@@ -12,7 +12,7 @@ app.use(compression())
 app.use(express.static(path.join(dirname, 'client/build')))
 
 app.get('/api/generate', (request, response) => {
-  response.json(wordGenerator(50))
+  response.json(wordGenerator(request.query.min, request.query.max))
 })
 
 app.get('/api/solve', (request, response) => {

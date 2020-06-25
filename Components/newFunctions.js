@@ -4,7 +4,19 @@ const nineLetterWords = () => {
   let words = []
   common.forEach((word) => {
     let letters = word.split('')
-    word.length === 9 && letters[letters.length - 1] !== 's' && words.push(word)
+    if (word.length === 9) {
+      if (letters[letters.length - 1] !== 's') {
+        if (
+          letters[letters.length - 1] !== 'g' &&
+          letters[letters.length - 2] !== 'n' &&
+          letters[letters.length - 3] !== 'i'
+        ) {
+          if (letters[letters.length - 1] !== 'd' && letters[letters.length - 2] !== 'e') {
+            words.push(word)
+          }
+        }
+      }
+    }
   })
   return words
 }
@@ -17,7 +29,7 @@ function shuffle(a) {
   return a
 }
 
-export const wordGenerator = (threshold) => {
+export const wordGenerator = (min, max) => {
   let words = nineLetterWords()
 
   let randWordIndex = Math.floor(Math.random() * words.length + 1)
@@ -43,8 +55,8 @@ export const wordGenerator = (threshold) => {
   })
   let letters = shuffle(chosen.split(''))
   let index = letters.indexOf(chosen[randIndex])
-
-  return usableWords.length < threshold ? wordGenerator(threshold) : { usableWords, letters, index }
+  let between = () => usableWords.length >= min && usableWords.length <= max
+  return between() ? { usableWords, letters, index, chosen } : wordGenerator(min, max)
 }
 
 const countWords = (array) => {

@@ -15,7 +15,7 @@ export const Provider = ({ children }) => {
     setGuesses([])
     setIncorrect([])
     axios
-      .get('/api/generate')
+      .get('/api/generate?min=25&max=50')
       .then((resp) => {
         let index = resp.data.index
         let letters = [...resp.data.letters]
