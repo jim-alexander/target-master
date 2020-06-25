@@ -12,10 +12,12 @@ export const Provider = ({ children }) => {
   const [alert, setAlert] = useState(null)
 
   const newGame = () => {
+    let search = window.location.search
+    console.log('http://localhost:3000/?min=100&max=500')
     setGuesses([])
     setIncorrect([])
     axios
-      .get('/api/generate?min=25&max=50')
+      .get(`/api/generate${search.includes('?') ? search : '?min=25&max=50'}`)
       .then((resp) => {
         let index = resp.data.index
         let letters = [...resp.data.letters]
