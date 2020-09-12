@@ -4,10 +4,8 @@ import wordlist from 'wordlist-english'
 const common = [
   ...wordlist['english/australian/10'],
   ...wordlist['english/australian/20'],
-  ...wordlist['english/australian/35'],
   ...wordlist['english/10'],
   ...wordlist['english/20'],
-  ...wordlist['english/35'],
 ]
 
 //Will accept more uncommon words

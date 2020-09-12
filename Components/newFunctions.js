@@ -12,6 +12,12 @@ const nineLetterWords = () => {
           letters[letters.length - 3] !== 'i'
         ) {
           if (letters[letters.length - 1] !== 'd' && letters[letters.length - 2] !== 'e') {
+            // if (
+            //   letters[letters.length - 1] !== 't' &&
+            //   letters[letters.length - 2] !== 's' &&
+            //   letters[letters.length - 3] !== 'e'
+            // ) {
+            // }
             words.push(word)
           }
         }
